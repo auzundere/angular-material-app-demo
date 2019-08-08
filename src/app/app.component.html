@@ -1,0 +1,140 @@
+
+
+
+<br><br>
+<h1>Heading 1</h1>
+
+<p>
+    Because of the way things currently work, uploading a new copy will not update your Kindle copy unless you do a Contact Us (at the bottom right of this page) and politely ask the folks there to "push" you the newer version. After they do that, you go to your Kindle, or PC Kindle software, and select Tools / Sync and Check to get the changed copy. Note that this option is NOT available if you happen to have a book open.
+</p>
+<br><br>
+<button color="primary" mat-raised-button>Button 1</button>
+<button color="accent" mat-raised-button>Button 1</button>
+<button color="warn" mat-raised-button>Button 1</button>
+
+
+
+<h1>Heading 2</h1>
+
+
+<button mat-raised-button (click)="openDialog()">Open Dialog</button>
+
+<br><br><br>
+<mat-tab-group>
+  <mat-tab label="Billing"> 
+    Content of the billing tab
+     </mat-tab>
+  <mat-tab label="Shipping"> 
+      Content of the shipping tab
+    </mat-tab>
+</mat-tab-group>
+
+
+<br><br>
+<br>
+<span
+    matTooltipPosition="right"
+    matTooltip="Info about the action">
+    Action
+</span>
+<br>
+<br>
+<mat-spinner 
+  mode="determinate" 
+  [value]="progress">
+</mat-spinner>
+<br>
+<mat-spinner 
+  mode="indeterminate"> 
+</mat-spinner>
+<br>
+<mat-spinner 
+  *ngIf="isLoading"
+  mode="indeterminate"> 
+</mat-spinner>
+<br>
+
+<br><br>
+<mat-chip-list>
+  <mat-chip 
+    *ngFor="let category of categories"
+    (click)="selectCategory(category)"
+    [selected]="category.selected"
+    >{{ category.name }}</mat-chip>
+  
+</mat-chip-list>
+
+<br><br>
+
+<button mat-button>Button 1</button> 
+<button color="primary" mat-raised-button>Primary</button> 
+<button color="accent" mat-raised-button>Accent</button> 
+<button color="warn" mat-raised-button>Warn</button> 
+<button color="primary" mat-fab><mat-icon>check</mat-icon></button> 
+
+<br><br>
+
+<mat-icon>add_alert</mat-icon>
+<br><br>
+<mat-form-field>
+  <input
+    (focus)="birthdate.open()"
+    [min]="minDate"
+    [max]="maxDate"
+    type="text" matInput [matDatepicker]="birthdate" placeholder="Choose a date">
+  <mat-datepicker-toggle matSuffix [for]="birthdate"></mat-datepicker-toggle>
+  <mat-datepicker #birthdate touchUi="true"></mat-datepicker>
+</mat-form-field>
+
+<br><br>
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input 
+    ngModel
+    #username="ngModel"
+    name="username"
+      type="text" matInput placeholder="username" required>
+    <mat-hint>Type a unique username.</mat-hint>
+    <span matSuffix>@domain.com</span>
+    <span matPrefix>admin.</span>
+    <mat-error *ngIf="username.invalid && username.errors.required">
+      The username field is required.
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <textarea matInput matTextareaAutosize placeholder="Leave a comment"></textarea>
+  </mat-form-field>
+</form>
+<br>
+<br>
+
+<mat-form-field>
+  <mat-select [(ngModel)]="color">
+    <mat-option
+      *ngFor="let color of colors"
+      [value]="color.id">{{color.name}}
+  </mat-option>
+    <!-- <mat-option value="option1">Option 1</mat-option>
+    <mat-option value="option2">Option 2</mat-option>
+    <mat-option value="option3">Option 3</mat-option> -->
+  </mat-select>
+</mat-form-field>
+
+<p>You selected: {{selected}}</p>
+<br>
+<br>
+<mat-radio-group value="0">
+  <mat-radio-button value="1">Male</mat-radio-button>
+  <mat-radio-button value="0">Female</mat-radio-button>
+</mat-radio-group>
+<br>
+<br>
+<mat-checkbox
+#showDetails
+[value]=""
+[checked]="isChecked"
+(change)="onChange($event)"
+>Show Details</mat-checkbox>
+
+<div *ngIf="showDetails.checked">Some details....</div>
